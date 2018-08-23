@@ -1,0 +1,121 @@
+extends ../templates/base
+
+block variables
+	- var classBody = 'portfolio-page'
+	- var classWrapper = 'portfolio'
+
+block title
+	title Portfolio
+
+block header
+	include ../modules/header
+	+header()
+		.header__menu-click Portfolio
+		ul.clearfix
+			each link, title in nav.navPages
+				li
+					a(href= link)= title
+block main
+	section.portfolio-title
+		.container
+			.portfolio-title__content
+				.line-red.line-red--left
+				.line-red.line-red--right
+				.skew-line.skew-line--left
+				.skew-line.skew-line--right
+				h2 Portfolio
+	section.portfolio-main
+		.container
+			.portfolio-main__content
+				h2 Destributed Ladger technology
+			ul.portfolio-main__block
+				li.portfolio-main__row
+					.row
+						.col-md-4
+							.row
+								.col-md-12.col-sm-5
+									.portfolio-main__box.portfolio-main__box-3(style='background-image: url(' + require('../../components/images/portfolio-pic-4.jpg') + ')')
+								.col-md-12.col-sm-7
+									.portfolio-main__box.portfolio-main__box-4.border
+										.portfolio-main__info
+											p
+												| Distributed Ladger Technology verifies and secures data through time which gives best ever credability and gives trust to those one who use it, trust and trancparency is vital for growth so we help our customers to grow faster as never before
+										.portfolio-main__img(style='background-image: url(' + require('../../components/images/portfolio-pic-5.jpg') + ')')
+						.col-md-8
+							.row
+								.col-lg-8.col-sm-7
+									.portfolio-main__box.portfolio-main__box-5
+										.portfolio-main__img(style='background-image: url(' + require('../../components/images/portfolio-pic-3.jpg') + ')')
+										.portfolio-main__info
+											p
+												| To help businesses institutions and organisations to adop distributed ledger technology data analyses and get maximum efficiency through it
+								.col-lg-4.col-sm-5
+									.portfolio-main__box.portfolio-main__box-2(style='background-image: url(' + require('../../components/images/portfolio-pic-2.jpg') + ')')
+										.portfolio-main__info
+											p
+												| To help businesses institutions and organisations to adop distributed ledger technology data analyses and get maximum efficiency through it
+									.portfolio-main__box.portfolio-main__box-1(style='background-image: url(' + require('../../components/images/portfolio-pic-1.jpg') + ')')
+							.row
+								.col-sm-12
+									.portfolio-main__box.portfolio-main__box-6(style='background-image: url(' + require('../../components/images/portfolio-pic-6.jpg') + ')')
+				li.portfolio-main__row
+					.row
+						.col-md-8
+							.row
+								.col-lg-4.col-sm-5
+									.portfolio-main__box.portfolio-main__box-1(style='background-image: url(' + require('../../components/images/portfolio-pic-1.jpg') + ')')
+									.portfolio-main__box.portfolio-main__box-2(style='background-image: url(' + require('../../components/images/portfolio-pic-7.jpg') + ')')
+												.portfolio-main__info
+													p
+														| To help businesses institutions and organisations to adop distributed ledger technology data analyses and get maximum efficiency through it
+								.col-lg-8.col-sm-7
+									.portfolio-main__box.portfolio-main__box-5(style='background-image: url(' + require('../../components/images/portfolio-pic-4.jpg') + ')')
+										.portfolio-main__info
+											p
+												| To help businesses institutions and organisations to adop distributed ledger technology data analyses and get maximum efficiency through it
+							.row
+								.col-sm-12
+									.portfolio-main__box.portfolio-main__box-6(style='background-image: url(' + require('../../components/images/portfolio-pic-6.jpg') + ')')
+						.col-md-4
+							.row
+								.col-md-12.col-sm-7
+									.portfolio-main__box.portfolio-main__box-3
+										.portfolio-main__img(style='background-image: url(' + require('../../components/images/portfolio-pic-9.jpg') + ')')
+										.portfolio-main__info
+											p
+												| Blockchain, Etherium, Aiota and others are just cases of DLT. It provides more wide oportunities for transparent and trustworthy buinesses
+								.col-md-12.col-sm-5
+									.portfolio-main__box.portfolio-main__box-4(style='background-image: url(' + require('../../components/images/portfolio-pic-8.jpg') + ')')
+										.portfolio-main__info
+											p
+												| To help businesses institutions and organisations to adop distributed ledger technology data analyses and get maximum efficiency through it
+	section.learn-more.learn-more--light
+		.container
+			.learn-more__content
+				.line-red.line-red--left
+				.line-red.line-red--right
+				.skew-line.skew-line--left
+				.skew-line.skew-line--right
+				p Help your businesses institutions and organisations to adop distributed ledger technology data analyses and get maximum efficiency through it
+				a(href="#").btn.btn--learn Learn More
+block footer
+	- var nav = require('../../data/nav.json')
+	footer
+		.footer
+			.container
+				.footer__content
+					.footer__left
+						.footer__menu.clearfix
+							.footer__menu-click Portfolio
+							ul
+								each link, title in nav.navPages
+									li
+										a(href= link)= title
+						.footer__copyright
+							p 
+								| ©
+								span#year
+								| DLT, INC
+					.footer__right
+						.footer__logo
+							a(href="./")

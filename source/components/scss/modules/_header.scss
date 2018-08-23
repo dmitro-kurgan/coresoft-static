@@ -1,0 +1,130 @@
+$headerHeight: 123px;
+header {
+	.header {
+		position: relative;
+		background-color: #fff;
+		margin: auto;
+		z-index: 99;
+		&__content {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+			position: relative;
+			// padding: 0px 0px 20px 0px;
+			padding: 25px 0px;
+			@media #{$mobile} {
+				padding: 15px 0 30px 0;
+				display: block;
+			}
+			.skew-line {
+				&--left, &--right {
+					position: absolute;
+					background-color: #fff;
+				}
+				&--left {
+					bottom: calc(-100% - 107px);
+					left: calc(-5000px - 303px);
+					height: 230px;
+					width: 5000px;
+					transform: skew(106deg, 0deg);
+					@media #{$mobile} {
+					    bottom: calc(0% - 230px);
+					}
+				}
+				&--right {
+					bottom: calc(-100% - 36px);
+				    right: calc(-5000px + 200px);
+				    height: 159px;
+				    width: 5000px;
+				    transform: skew(85deg, 0deg);
+				    @media #{$desctop} {
+				    	right: calc(-5000px + 50px);
+				    }
+				    @media #{$mobile} {
+				    	right: calc(-5000px - 270px);
+		    	    	bottom: calc(0% - 159px);
+				    }
+				}
+			}
+		}
+		&__logo {
+			@media #{$mobile} {
+				text-align: center;
+			}
+			a {
+				display: inline-block;
+				width: 292px;
+				height: 71px;
+				background-image: url(../images/logo.png);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+				@media #{$tablet} {
+					width: calc(292px / 1.25);
+					height: calc(71px / 1.25);
+				}
+				@media #{$mobile} {
+					width: calc(292px / 1);
+					height: calc(71px / 1);
+				}
+			}
+		}
+		&__menu {
+			&-click {
+				margin-top: 30px;
+				color: #000;
+				font-size: 17px;
+				font-weight: 600;
+				text-transform: uppercase;
+				display: none;
+				position: relative;
+				&:after {
+					content: '';
+					margin-left: 8px;
+					margin-top: -3px;
+					display: inline-block;
+					vertical-align: middle;
+					width: 0; 
+					height: 0; 
+					border-top: 5px solid transparent;
+					border-bottom: 5px solid transparent;
+					border-left: 5px solid #000;
+				}
+				@media #{$mobile} {
+					display: inline-block;
+				}
+			}
+			ul {
+				@media #{$mobile} {
+					background-color: #fff;
+					max-height: 0px;
+    				overflow: hidden;
+					transition: max-height 0.2s ease-out;
+				}
+			}
+			li {
+				float: left;
+				@media #{$mobile} {
+					float: none;
+					margin-top: 5px;
+					text-decoration: underline;
+				}
+				& + li {
+					margin-left: 20px;
+					@media #{$mobile} {
+						margin-left: 0px;
+					}
+				}
+			}
+			a {
+				color: #000;
+				font-size: 15px;
+				font-weight: 600;
+				text-transform: uppercase;
+				@media #{$tablet} {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}

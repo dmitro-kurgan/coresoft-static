@@ -1,0 +1,155 @@
+extends ../templates/base
+
+block variables
+	- var classBody = 'index-page'
+	- var classWrapper = 'index'
+
+block title
+	title Index
+
+block header
+	include ../modules/header
+	+header()
+block main
+	section.banner(style='background-image: url(' + require('../../components/images/banner-background.jpg') + ')')
+		.container
+			.banner__content
+				.banner__main
+					.banner__slider
+						.banner__btns
+							a(href="#").btn.btn--blue Explore Markets
+							a(href="#").btn.btn--red Register
+						.sldier.slick-banner
+							mixin slickSlider(title, text)
+								div
+									.slick-banner__box
+										h1= title
+										p= text
+							+slickSlider('Destributed Ladger technology', 'Ensure  transparency and managebility  to busineses and institutions through Data analytics and distributed ledger technologies development implimentation and adoption')
+							+slickSlider('Destributed Ladger technology', 'Ensure  transparency and managebility  to busineses and institutions through Data analytics and distributed ledger technologies development implimentation and adoption')
+							+slickSlider('Destributed Ladger technology', 'Ensure  transparency and managebility  to busineses and institutions through Data analytics and distributed ledger technologies development implimentation and adoption')
+	section.learn-more.learn-more--light
+		.container
+			.learn-more__content
+				.skew-line.skew-line--left
+				.skew-line.skew-line--right
+				p Help your businesses institutions and organisations to adop distributed ledger technology data analyses and get maximum efficiency through it
+				a(href="#").btn.btn--learn Learn More
+	section.customers
+		.container
+			.row.customers__content
+				.customers__left.col-sm-5
+					h2 Our customers
+					ul
+						li Government
+						li Business
+						li ICOs and Strurtups
+						li Partners
+						li NGO
+				.customers__right.col-sm-7
+					#accordion.panel-group
+						.panel
+							.panel-heading
+								.panel-title
+									a(data-toggle='collapse', data-parent='#accordion', href='#collapse1', aria-expanded="true").
+										Who we are
+							#collapse1.panel-collapse.collapse.in
+								.panel-body
+									p
+										| We study business processes with our high tech BI team who are well aware in high tech trends and are able to cooperate on building solution architecture. Our cybersecurity specialists modify the designe to provide best security with desired flexibility and accessability for solution.
+						.panel
+							.panel-heading
+								.panel-title
+									a(data-toggle='collapse', data-parent='#accordion', href='#collapse2', aria-expanded="false").
+										What we do
+							#collapse2.panel-collapse.collapse
+								.panel-body
+									p
+										| We study business processes with our high tech BI team who are well aware in high tech trends and are able to cooperate on building solution architecture. Our cybersecurity specialists modify the designe to provide best security with desired flexibility and accessability for solution.
+						.panel
+							.panel-heading
+								.panel-title
+									a(data-toggle='collapse', data-parent='#accordion', href='#collapse3', aria-expanded="false").
+										how we do
+							#collapse3.panel-collapse.collapse
+								.panel-body
+									p
+										| We study business processes with our high tech BI team who are well aware in high tech trends and are able to cooperate on building solution architecture. Our cybersecurity specialists modify the designe to provide best security with desired flexibility and accessability for solution.
+	section.history
+		.container
+			.row
+				.history__content
+					.history__left.col-sm-5
+						
+							h2 our history
+							p.
+								.We started a company for DLT implimentation and development in 2012. First product was Coidrive a distributed ladger wallet to process store and verify transactions ( documents) which was white labeled to several corporate customers..
+							a(href="#").btn Read more
+					.history__right.col-sm-7
+							img(src=require("../../components/images/mac-iphone.png"))
+	section.learn-more.learn-more--dark
+		.container
+			.learn-more__content
+				.skew-line.skew-line--left
+				.skew-line.skew-line--right
+				p Help your businesses institutions and organisations to adop distributed ledger technology data analyses and get maximum efficiency through it
+				a(href="#").btn.btn--learn Learn More
+	section.whywe
+		.container
+			.whywe__content
+				ul.row
+					li.col-sm-4
+						.whywe__box
+							.whywe__img
+								img(src=require('../../components/images/why-we-pic-1.png'))
+							.whywe__text
+								p
+									| Why we are best
+					mixin whywe(img, text)
+						li.col-sm-4
+							.whywe__box
+								.whywe__img
+									img(src=require('../../components/images/why-we-pic-' + img + '.png'))
+								.whywe__text
+									p= text	
+					+whywe('2', 'We are just the best, because nobody does DLT better than we do')
+					+whywe('3', 'BI with expirience in corporate NGO goverment and early stage managemnt alway know the cure for their pain')
+					+whywe('4', 'Custumer support on best practices build with integrators of high corporate segment level of exelance ')
+					+whywe('5', 'Skilled tech team operating from the begining of DLT in mass')
+					+whywe('6', 'Great Delivery and perfomance as we are in high tech products for more than 600 years in total')
+	section.signup
+		.container
+			.signup__content
+				h2 Sign Up and start trading
+				form
+					.form-group
+						input.form-control(type="text", placeholder="Email Address")
+					.form-group
+						input.form-control(type="password", placeholder="Password")
+					.form-group
+						input.form-control(type="password", placeholder="Confirm Password")
+					.checkbox
+						label(for='agree')
+							input(type='checkbox', name='agree', id='agree')
+							.checkbox-square
+							| I agree to the DLT
+							a(href="#") Terms of Service
+					.form-group.col-sm-12
+							button.btn.btn--red(type="submit") Register
+block footer
+	- var nav = require('../../data/nav.json')
+	footer
+		.footer
+			.container
+				.footer__content
+					.footer__menu.clearfix
+						.footer__menu-click Home
+						ul
+							each link, title in nav.navPages
+								li
+									a(href= link)= title
+					.footer__copyright
+						p 
+							| ©
+							span#year
+							| DLT, INC

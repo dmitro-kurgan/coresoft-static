@@ -1,0 +1,20 @@
+- var nav = require('../../data/nav.json')
+
+mixin header()
+	header
+		.header
+			.container
+				.header__content
+					.skew-line.skew-line--left
+					.skew-line.skew-line--right
+					.header__logo
+						a(href="./")
+					.header__menu.clearfix
+						if block
+							block
+						else
+							.header__menu-click Home
+							ul.clearfix
+								each link, title in nav.navPages
+									li
+										a(href= link)= title

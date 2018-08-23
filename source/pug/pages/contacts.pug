@@ -1,0 +1,65 @@
+extends ../templates/base
+
+block variables
+	- var classBody = 'contacts-page'
+	- var classWrapper = 'contacts'
+
+block title
+	title Contacts
+
+block header
+	include ../modules/header
+	+header()
+		.header__menu-click Contacts
+		ul.clearfix
+			each link, title in nav.navPages
+				li
+					a(href= link)= title
+
+block main
+	section.map(style='background-image: url(' + require('../../components/images/contacts-background.jpg') + ')')
+		h2 Contacts
+		img(src=require('../../components/images/contacts-background.jpg'))
+	section.request
+		.container
+			.request__content
+				.skew-line.skew-line--left
+				.skew-line.skew-line--right
+				.request__title
+					h2 Request a quote
+					p 
+						| Ask about job openings. Or just say hi. Whatever your reason, just fill out the contact form below. We’d love to hear from you.
+				form.row
+					.form-group.col-sm-6
+						input.form-control(type="text", placeholder="Your name")
+					.form-group.col-sm-6
+						input.form-control(type="text", placeholder="Your Email")
+					.form-group.col-sm-6
+						input.form-control(type="text", placeholder="Your Phone Number")
+					.form-group.col-sm-6
+						input.form-control(type="text", placeholder="https://")
+					.form-group.col-sm-12
+						textarea.form-control(placeholder="Your Message...")
+					.form-group.col-sm-12
+						button.btn.btn--red(type="submit") Register
+block footer
+	- var nav = require('../../data/nav.json')
+	footer
+		.footer
+			.container
+				.footer__content
+					.footer__left
+						.footer__menu.clearfix
+							.footer__menu-click Contacts
+							ul
+								each link, title in nav.navPages
+									li
+										a(href= link)= title
+						.footer__copyright
+							p 
+								| ©
+								span#year
+								| DLT, INC
+					.footer__right
+						.footer__logo
+							a(href="./")

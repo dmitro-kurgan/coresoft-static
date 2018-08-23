@@ -1,0 +1,10 @@
+{
+  "navPages": {
+    "Home" : "./",
+    "About us" : "#",
+    "History": "#",
+    "Portfolio": "portfolio.html",
+    "Blog": "blog.html",
+    "Contacts": "contacts.html"
+  }
+}
